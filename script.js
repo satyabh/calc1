@@ -51,6 +51,15 @@ function clr() {
     return;
 }
 
+function changeSign() {
+    var current = document.getElementById("display-text").textContent;
+    if (!(current === '0')) {
+        let ans = parseInt(current)*-1;
+        document.getElementById("display-text").innerHTML = ans;
+    }
+    else {return;}
+}
+
 function equals() {
     var current = document.getElementById("display-text").textContent;
     if (!(currentOp === '')) {
