@@ -13,26 +13,26 @@
         <div class="display"><div id="display-text">0</div></div>
         <div class="buttons">
             <div class="numbers">
-                <button onclick="updateDisplay('1')">1</button>
-                <button onclick="updateDisplay('2')">2</button>
-                <button onclick="updateDisplay('3')">3</button>
-                <button onclick="updateDisplay('4')">4</button>
-                <button onclick="updateDisplay('5')">5</button>
-                <button onclick="updateDisplay('6')">6</button>
-                <button onclick="updateDisplay('7')">7</button>
-                <button onclick="updateDisplay('8')">8</button>
-                <button onclick="updateDisplay('9')">9</button>
-                <button onclick="dot()">.</button>
-                <button onclick="updateDisplay('0')">0</button>
+                <button class="number" onclick="updateDisplay('1')">1</button>
+                <button class="number" onclick="updateDisplay('2')">2</button>
+                <button class="number" onclick="updateDisplay('3')">3</button>
+                <button class="number" onclick="updateDisplay('4')">4</button>
+                <button class="number" onclick="updateDisplay('5')">5</button>
+                <button class="number" onclick="updateDisplay('6')">6</button>
+                <button class="number" onclick="updateDisplay('7')">7</button>
+                <button class="number" onclick="updateDisplay('8')">8</button>
+                <button class="number" onclick="updateDisplay('9')">9</button>
+                <button class="number" onclick="dot()">.</button>
+                <button class="number" onclick="updateDisplay('0')">0</button>
             </div>
             <div class="operators">
-                <button onclick="clr()")>AC</button>
-                <button onclick="changeSign()">+/-</button>
-                <button onclick="process('*')">*</button>
-                <button onclick="process('/')">/</button>
-                <button onclick="process('-')">-</button>
-                <button onclick="process('+')">+</button>
-                <button id="equals" onclick="equals()">=</button>
+                <button class="op" onclick="changeSign()" class="plusMinus">+/-</button>
+                <button class="op" onclick="clr()")>AC</button>
+                <button class="op" onclick="process('*')">*</button>
+                <button class="op" onclick="process('/')">/</button>
+                <button class="op" onclick="process('-')">-</button>
+                <button class="op" onclick="process('+')">+</button>
+                <button class="op" id="equals" onclick="equals()">=</button>
             </div>
         </div>
     </div>
