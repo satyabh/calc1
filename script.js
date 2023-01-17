@@ -2,9 +2,11 @@ var storedNum=0;
 let currentDisplay = 0;
 let currentOp = '';
 let clearOnNext = false;
+let spamPrevent = true;
 function updateDisplay(a) {
     var current = document.getElementById("display-text").textContent;
-    if ((current === '0') || (clearOnNext)) {
+    spamPrevent = false;
+    if ((current === '0') || (clearOnNext === true)) {
         document.getElementById("display-text").innerHTML = a;
         currentDisplay = parseInt(a);
         clearOnNext = false;
@@ -17,25 +19,36 @@ function updateDisplay(a) {
 
 function process(o) {
     var current = document.getElementById("display-text").textContent;
-    if (currentOp === '') {
-        storedNum = parseInt(current);
-        clearOnNext = true;
-        currentOp = o;
+    if (spamPrevent === true) {
+        console.log("spam ignored");
+        return;
     }
     else {
-        let ans = operate(storedNum,parseInt(current),currentOp);
-        clearOnNext = true;
-        updateDisplay(ans);
-        currentOp = o;
-        storedNum = ans;
-        clearOnNext = true;
+        if (currentOp === '') {
+            storedNum = parseInt(current);
+            clearOnNext = true;
+            currentOp = o;
+            spamPrevent = true;
+        }
+        else {
+            let ans = operate(storedNum,parseInt(current),currentOp);
+            clearOnNext = true;
+            updateDisplay(ans);
+            currentOp = o;
+            storedNum = ans;
+            clearOnNext = true;
+            spamPrevent = true;
+        }
     }
 }
 
-function clear() {
-    document.getElementById("display-text").innerHTML = '0';
+function clr() {
+    console.log("reset");
     currentOp = '';
     storedNum = 0;
+    spamPrevent = true;
+    document.getElementById("display-text").innerHTML = "0";
+    return;
 }
 
 function equals() {
@@ -54,9 +67,9 @@ function operate(a,b,o) {
     console.log("did an operation");
     if (o === '+') {
         let sum = a+b;
-        return sum;
         console.log('added');
         console.log(sum);
+        return sum;
     }
     if (o === '-') {
         return a-b;
@@ -67,4 +80,5 @@ function operate(a,b,o) {
     if (o === '/') {
         return a/b;
     }
+    else {return;}
 }
